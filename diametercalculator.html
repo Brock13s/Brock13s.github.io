@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diameter-Straight Edge Calculator</title>
+  <script>
+    function calculateDiameter() {
+      var straightEdge = parseFloat(document.getElementById("straightEdgeInput").value);
+      var diameter = straightEdge / Math.PI;
+      if (diameter >= 1000) {
+        diameter = diameter / 1000;
+        document.getElementById("diameterResult").textContent = "Diameter: " + diameter.toFixed(2) + " m";
+      } else {
+        document.getElementById("diameterResult").textContent = "Diameter: " + diameter.toFixed(2) + " mm";
+      }
+    }
+    
+    function calculateStraightEdge() {
+      var diameter = parseFloat(document.getElementById("diameterInput").value);
+      var straightEdge = diameter * Math.PI;
+      if (straightEdge >= 1000) {
+        straightEdge = straightEdge / 1000;
+        document.getElementById("straightEdgeResult").textContent = "Straight Edge: " + straightEdge.toFixed(2) + " m";
+      } else {
+        document.getElementById("straightEdgeResult").textContent = "Straight Edge: " + straightEdge.toFixed(2) + " mm";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Diameter to Straight Edge Conversion</h2>
+  <label for="diameterInput">Diameter (mm):</label>
+  <input type="number" id="diameterInput" step="0.01">
+  <button onclick="calculateStraightEdge()">Calculate Straight Edge</button>
+  <p id="straightEdgeResult"></p>
+
+  <h2>Straight Edge to Diameter Conversion</h2>
+  <label for="straightEdgeInput">Straight Edge (mm):</label>
+  <input type="number" id="straightEdgeInput" step="0.01">
+  <button onclick="calculateDiameter()">Calculate Diameter</button>
+  <p id="diameterResult"></p>
+</body>
+</html>
